@@ -53,6 +53,7 @@ module.exports.SinglyLinkedList = class {
 
     return value;
   }
+
   removeLast() {
     if (!this.tail) return null;
     const { value } = this.tail;
@@ -68,7 +69,7 @@ module.exports.SinglyLinkedList = class {
   }
 
   print() {
-    if (this.#head) this.#head.__rec_print();
+    if (this.head) this.head.__rec_print();
     else process.stdout.write("empty list\n");
   }
 
