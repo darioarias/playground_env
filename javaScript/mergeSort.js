@@ -70,6 +70,6 @@ let lists = [new List([1, 2, 3]), new List([4, 5, 6]), new List([7, 8, 9])];
 
 // 1, 2, 3, 5, 7, 8, 9, 10, 15;
 
-list_mergeSort(lists).print();
+// list_mergeSort(lists).print();
 
 // list_merge(new List([2, 5, 7]), new List([3, 4])).print();
