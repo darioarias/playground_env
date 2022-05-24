@@ -1,3 +1,10 @@
+// const { DoublyLinkedList_Node } = require("./structures/nodes");
+const { DoublyLinkedList } = require("./structures/linkedlists");
+
 const main = () => {
-  console.log("Hello World");
+  const list = new DoublyLinkedList();
+
+  console.log(list.print());
 };
+
+main();
