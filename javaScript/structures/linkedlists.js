@@ -9,9 +9,10 @@ module.exports.DoublyLinkedList = class {
    * 0th element will become the head while the Nth element will become the tail
    */
   constructor(items = []) {
-    Array.isArray(items)
-      ? items.forEach((value) => this.append(value))
-      : this.append(items);
+    if (Array.isArray(items) && !(items.length > 0) ? false : items)
+      Array.isArray(items)
+        ? items.forEach((value) => this.append(value))
+        : this.append(items);
   }
 
   //getters
