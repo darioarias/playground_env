@@ -22,8 +22,8 @@ class Shifter {
   }
 
   static show_binary(decimal, bytes = 1, symbol = "0") {
+    let opt = [...arguments].splice(3);
     let base_bits = Shifter.toBinary(decimal);
-
     while (bytes && base_bits.length < bytes * 4)
       base_bits = `${symbol}${base_bits}`;
 
@@ -32,7 +32,8 @@ class Shifter {
         base_bits.length > bytes * 4
           ? ` | ${decimal} <- does not fit in ${bytes * 4} bits, ${bytes} bytes`
           : ""
-      }`
+      }`,
+      ...opt
     );
   }
 
