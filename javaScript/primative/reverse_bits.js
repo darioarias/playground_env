@@ -1,3 +1,4 @@
+const { Shifter } = require("../structures/binary");
 /**
  * Given an integer input, return the integer value of input's bits reversed.
  * You will only be reversing the "significant portion" of the binary representation (ignoring leading zeros).
@@ -29,7 +30,6 @@
  * Constraints:
  * input will always be strictly greater than or equal to 0
  */
-const { Shifter } = require("../structures/binary");
 const solution = (number) => {
   let output = 0;
   while (number != 0) {
@@ -41,8 +41,6 @@ const solution = (number) => {
   }
   return output;
 };
-
-let num = 12; // 1100
 
 const solution_02 = (number) => {
   let output = 0;
@@ -59,4 +57,18 @@ const solution_02 = (number) => {
   // Shifter.show_binary((output | 1) << 1);
 };
 
-solution_02(10); //1100
+const solution_03 = (number) => {
+  let output = 0;
+  let fail = 0;
+  while (number !== 0) {
+    output <<= 1;
+    if ((number & 1) === 1) output |= 1;
+    number >>= 1;
+    if (++fail >= 100) break;
+  }
+  return output;
+};
+
+let ans = solution_03(10);
+Shifter.show_binary(ans); //1100
+console.log(ans);

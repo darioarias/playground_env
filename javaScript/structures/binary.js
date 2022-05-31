@@ -23,13 +23,21 @@ class Shifter {
 
   static show_binary(decimal, bytes = 1, symbol = "0") {
     let base_bits = Shifter.toBinary(decimal);
-    while (base_bits.length < bytes * 4) base_bits = `${symbol}${base_bits}`;
 
-    console.log(base_bits);
+    while (bytes && base_bits.length < bytes * 4)
+      base_bits = `${symbol}${base_bits}`;
+
+    console.log(
+      `${base_bits} (${base_bits.length}, ${Math.ceil(base_bits.length / 4)}) ${
+        base_bits.length > bytes * 4
+          ? ` | ${decimal} <- does not fit in ${bytes * 4} bits, ${bytes} bytes`
+          : ""
+      }`
+    );
   }
 
   static show_decimal(binary) {
-    console.log(Shifter.toDecimal(binary));
+    console.log(parseInt(Shifter.toDecimal(binary), 10));
   }
 
   binaryCast(decimal) {

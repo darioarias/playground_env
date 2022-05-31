@@ -84,6 +84,32 @@ const solution_03 = (number) => {
   return true;
 };
 
-// console.log(solution_03(922329));
+const solution_04 = (number) => {
+  const digits = Math.floor(Math.log10(number)) + 1;
+  let mask = Math.pow(10, digits - 1);
+  for (let i = 0; i < Math.floor(digits / 2); i++) {
+    let left = Math.floor(number / mask);
+    let right = number % 10;
+    if (left !== right) return false;
+    number %= mask;
+    number = Math.floor(number / 10);
+    mask /= 100;
+  }
+  return true;
+};
+
+const solution_05 = (number, digits = Math.floor(Math.log10(number)) + 1) => {
+  if (0 <= digits && digits <= 1) return true;
+  let mask = Math.pow(10, digits - 1);
+  let left = Math.floor(number / mask);
+  let right = number % 10;
+  number %= mask;
+  number = Math.floor(number / 10);
+  return left === right && (!number || solution_05(number));
+};
+
+// console.log(solution_04(922329));
+console.log(solution_05(113411));
+// console.log(solution_04(922321) == false);
 // 92329;
 // 10000;
