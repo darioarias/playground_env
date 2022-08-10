@@ -70,23 +70,48 @@ class Heap {
     this.hash[values[a]] = a;
     this.hash[values[b]] = b;
   }
+
+  get empty() {
+    return this.values.length == 0;
+  }
 }
 
 const inputs = "5\n1 4\n1 9\n3\n2 4\n3";
 
+const input2 = [50, 45, 42, 30, 32, 11];
+const input3 = [50, 60, 33, 66, 88];
+const input4 = [22, 44, 66, 11, 43, 33, 90, 88, 75, 100, 32, 89, 94, 9]; //O(N)
+
+let list = [];
+for (let i = 0; i < 100; i++) {
+  list.push(Math.floor(Math.random() * 1000));
+}
+
+/*
+                            
+
+*/
 const solution = (input) => {
-  const heap = new Heap();
-  let queries = input.split("\n");
-  let i = 1;
-  while (i < queries.length) {
-    let [method, value] = queries[i].split(" ");
-    if (method === "1") {
-      heap.insert(parseInt(value, 10));
-    } else if (method === "2") {
-      heap.remove(parseInt(value, 10));
-    } else console.log(heap.peek());
-    i++;
+  const heap = new Heap(input);
+  {
+    // let queries = input.split("\n");
+    // let i = 1;
+    // while (i < queries.length) {
+    //   let [method, value] = queries[i].split(" ");
+    //   if (method === "1") {
+    //     heap.insert(parseInt(value, 10));
+    //   } else if (method === "2") {
+    //     heap.remove(parseInt(value, 10));
+    //   } else console.log(heap.peek());
+    //   i++;
+    // }
+    // heap.hash
+  }
+  heap.heapify();
+  console.log(heap.values);
+  while (!heap.empty) {
+    console.log(heap.remove());
   }
 };
 
-solution(inputs);
+solution(list);
