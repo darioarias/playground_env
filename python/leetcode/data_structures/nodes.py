@@ -221,3 +221,15 @@ class DoublyLinkedListNode(
             return self.value == __o
         except TypeError:
             raise NotImplemented
+
+
+class PriorityQueueNode(tuple[T, int]):
+    def __new__(cls, value: T, priority: int) -> PriorityQueueNode[T]:
+        return tuple.__new__(cls, (value, priority))
+
+    def __init__(self, value: T, priority: int) -> None:
+        self.value = value
+        self.priority = priority
+
+    def __repr__(self) -> str:
+        return f"{type(self).__name__}({self.value!r})"
