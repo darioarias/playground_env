@@ -33,6 +33,13 @@ class AVL(Generic[CT]):
         populate_tree(items, 0, _avl)
         return _avl
 
+    @staticmethod
+    def from_iter(items: Iterable[CT]) -> AVL:
+        _temp_avl = AVL()
+        for item in items:
+            _temp_avl.insert(item)
+        return _temp_avl
+
     def insert(self, value: CT) -> None:
         def insert_helper(node: Optional[Node[CT]], value: CT) -> Node[CT]:
             if node is None:
