@@ -7,6 +7,11 @@ from .protocols import CT
 
 
 class Heap(Generic[CT]):
+    warnings.warn(
+        "Note that you can find a Heap in the standard library. use `from heapq import heapify, heappop, heappush`",
+        stacklevel=5,
+    )
+
     def __init__(
         self,
         __items: Optional[list[CT]] = None,
