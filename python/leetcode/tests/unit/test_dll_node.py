@@ -47,3 +47,23 @@ class TestBSTNode(unittest.TestCase):
 
         self.assertNotEqual(n_one, two)
         self.assertNotEqual(n_one, Node(two))
+
+    def test_iter(self) -> None:
+        n_one, n_two, n_three = self.nodes
+        one, *_ = self.vals
+
+        val, next_, prev = n_one
+
+        self.assertEqual(val, one)
+        self.assertIs(next_, None)
+        self.assertIs(prev, None)
+
+        n_two.prev = n_one
+        n_one.next = n_two
+
+        n_two.next = n_three
+        n_three.prev = n_two
+
+        _, next_, prev = n_two
+        self.assertIs(next_, n_three)
+        self.assertIs(prev, n_one)
