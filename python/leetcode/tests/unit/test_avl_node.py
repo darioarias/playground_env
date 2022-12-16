@@ -93,3 +93,7 @@ class TestAVLNode(unittest.TestCase):
 
     # TODO: overload str dunder and test it
     # TODO: map 'val' to 'value' and test it
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
