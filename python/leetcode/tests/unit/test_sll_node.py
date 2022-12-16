@@ -27,3 +27,11 @@ class TestSLLNode(unittest.TestCase):
 
         n_one.next = n_two
         self.assertIs(n_one.next, n_two)
+
+    def test_operators(self) -> None:
+        *_, n_three = self.nodes
+        *_, three = self.vals
+
+        self.assertEqual(n_three, Node(3))
+        self.assertEqual(n_three, three)
+        self.assertFalse(n_three == 2)
