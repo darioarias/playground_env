@@ -49,3 +49,9 @@ class TestSLLNode(unittest.TestCase):
 
         _, next_ = n_one
         self.assertIs(next_, n_two)
+
+    def test_structure(self) -> None:
+        n_one, *_ = self.nodes
+
+        self.assertIsInstance(n_one, tuple)
+        self.assertIsInstance(n_one, Node)
