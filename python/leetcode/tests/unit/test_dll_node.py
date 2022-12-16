@@ -84,3 +84,7 @@ class TestBSTNode(unittest.TestCase):
             pass
 
         self.assertEqual(repr(Node_(one)), f"Node_({one!r})")
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
