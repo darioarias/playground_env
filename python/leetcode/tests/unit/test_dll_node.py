@@ -67,3 +67,9 @@ class TestBSTNode(unittest.TestCase):
         _, next_, prev = n_two
         self.assertIs(next_, n_three)
         self.assertIs(prev, n_one)
+
+    def test_structure(self) -> None:
+        n_one, *_ = self.nodes
+
+        self.assertIsInstance(n_one, tuple)
+        self.assertIsInstance(n_one, Node)
