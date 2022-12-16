@@ -37,3 +37,13 @@ class TestBSTNode(unittest.TestCase):
 
         n_one.next = None
         self.assertIs(n_one.next, None)
+
+    def test_operators(self) -> None:
+        n_one, *_ = self.nodes
+        one, two, *_ = self.vals
+
+        self.assertEqual(n_one, one)
+        self.assertEqual(n_one, Node(one))
+
+        self.assertNotEqual(n_one, two)
+        self.assertNotEqual(n_one, Node(two))
