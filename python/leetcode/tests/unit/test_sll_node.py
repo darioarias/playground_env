@@ -55,3 +55,20 @@ class TestSLLNode(unittest.TestCase):
 
         self.assertIsInstance(n_one, tuple)
         self.assertIsInstance(n_one, Node)
+
+    def test_repr_str(self) -> None:
+        n_one, *_ = self.nodes
+        one, *_ = self.vals
+
+        self.assertEqual(str(n_one), str(one))
+
+        class Node_(Node):
+            pass
+
+        n = Node_(one)
+
+        self.assertEqual(repr(n), f"Node_({one!r})")
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
