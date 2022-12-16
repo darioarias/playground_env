@@ -91,3 +91,33 @@ class TestBSTNode(unittest.TestCase):
         n_str: Node[str] = Node("1")
         self.assertRaises(TypeError, operator.lt, n_str, n_one)
         self.assertRaises(TypeError, operator.gt, n_str, n_one)
+
+    def test_iter(self) -> None:
+        """Test to make sure iter dunder works as expected"""
+        one, two, three = self.one, self.two, self.three
+        n_one, n_two, n_three = self.n_one, self.n_two, self.n_three
+        """
+        found in self.n_two
+            2
+        1       3
+        """
+
+        val, left, right = n_two
+        assert isinstance(left, Node)
+        assert isinstance(right, Node)
+
+        self.assertEqual(val, two)
+        self.assertEqual(left.val, one)
+        self.assertEqual(right.val, three)
+
+        self.assertIs(left, n_one)
+        self.assertIs(right, n_three)
+
+        empty_node = Node(0)
+        val, left, right = empty_node
+
+        self.assertIsInstance(val, int)
+        self.assertIs(left, None)
+        self.assertIs(right, None)
+
+    # TODO: test repr and str - first update cls to support str
